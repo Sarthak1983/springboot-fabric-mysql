@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    fabric8.io/iconUrl: img/icons/spring-boot.svg
+    prometheus.io/scrape: "true"
+    fabric8.io/scm-tag: HEAD
+    prometheus.io/port: "9779"
+    fabric8.io/scm-url: https://github.com/spring-projects/spring-boot/spring-boot-starter-parent/springboot-mysql-fabric-app
+  labels:
+    expose: "true"
+    hystrix.enabled: "true"
+    app: springboot-mysql-fabric-app
+    provider: fabric8
+    version: "1.0"
+    group: com.sample
+  name: springboot-mysql-fabric-app
+spec:
+  ports:
+  - name: http
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: springboot-mysql-fabric-app
+    provider: fabric8
+    group: com.sample

@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: List
+items:
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    name: springboot-mysql-fabric-app
+  spec:
+    tags:
+    - from:
+        kind: ImageStreamImage
+        name: springboot-mysql-fabric-app@sha256:3bebe3d103ac20905b021b84bd532c4714172af3a35a483ca8ef18c20069bba2
+        namespace: mysql-project
+      name: "1.0"
